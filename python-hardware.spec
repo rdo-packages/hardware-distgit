@@ -30,7 +30,7 @@ Requires: python-pexpect
 
 
 %prep
-%autosetup -v -p 1 -n hardware-%{version}
+%autosetup -v -p 1 -n hardware-%{upstream_version}
 rm -rf *.egg-info
 
 %if 0%{?with_python3}
