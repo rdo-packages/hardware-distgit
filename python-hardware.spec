@@ -27,8 +27,6 @@ Requires: python-babel
 Requires: python-ipaddr
 Requires: python-netaddr
 Requires: python-pexpect
-Requires: python-pbr
-Requires: python-psutil
 
 
 %prep
