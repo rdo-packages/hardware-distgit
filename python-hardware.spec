@@ -5,7 +5,7 @@
 
 Name:           python-hardware
 Summary:        Hardware detection and classification utilities
-Version:        0.11
+Version:        0.12
 Release:        1%{?dist}
 License:        ASL 2.0
 Group:          Development/Languages
@@ -69,7 +69,7 @@ Features:
 ** hard drives
 ** IPMI
 ** network cards
-** DMI infos
+** DMI info
 ** memory settings
 ** processor features
 * filter hardware according to hardware profiles
@@ -90,7 +90,7 @@ Features:
 ** hard drives
 ** IPMI
 ** network cards
-** DMI infos
+** DMI info
 ** memory settings
 ** processor features
 * filter hardware according to hardware profiles
@@ -124,6 +124,9 @@ Documentation for Hardware detection and classification utilities.
 %endif # with_python3
 
 %changelog
+* Wed Mar 18 2015 Frederic Lepied <frederic.lepied@redhat.com> - 0.12-1
+- new version (bug #1196176)
+
 * Tue Feb 24 2015 Dmitry Tantsur <divius.inside@gmail.com> - 0.11-1
 - new version (bug #1195701)
 
