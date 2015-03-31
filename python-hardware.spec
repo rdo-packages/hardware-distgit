@@ -111,6 +111,7 @@ Documentation for Hardware detection and classification utilities.
 %{python2_sitelib}/hardware*
 %exclude %{python2_sitelib}/hardware/test*
 %{_bindir}/hardware-detect
+%{_bindir}/hardware-cardiff
 
 %files doc
 %license LICENSE
