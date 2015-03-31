@@ -109,6 +109,7 @@ Documentation for Hardware detection and classification utilities.
 %doc README.rst
 %{python2_sitelib}/hardware*
 %exclude %{python2_sitelib}/hardware/test*
+%{_bindir}/hardware-cardiff
 %{_bindir}/hardware-detect
 
 %files doc
