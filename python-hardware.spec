@@ -5,7 +5,7 @@
 
 Name:           python-hardware
 Summary:        Hardware detection and classification utilities
-Version:        0.13
+Version:        0.14
 Release:        1%{?dist}
 License:        ASL 2.0
 Group:          Development/Languages
@@ -124,6 +124,9 @@ Documentation for Hardware detection and classification utilities.
 %endif # with_python3
 
 %changelog
+* Tue Mar 31 2015 Frederic Lepied <frederic.lepied@redhat.com> - 0.14-1
+- new version (bug #1196176)
+
 * Thu Mar 26 2015 Frederic Lepied <frederic.lepied@redhat.com> - 0.13-1
 - new version (bug #1196176)
 
