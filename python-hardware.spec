@@ -27,6 +27,7 @@ Requires: python-babel
 Requires: python-ipaddr
 Requires: python-netaddr
 Requires: python-pexpect
+Requires: python-ptyprocess
 Requires: python-pandas
 
 
