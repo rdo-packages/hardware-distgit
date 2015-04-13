@@ -29,6 +29,7 @@ Requires: python-netaddr
 Requires: python-pexpect
 Requires: python-ptyprocess
 Requires: python-pandas
+Requires: python-pbr
 
 
 %prep
