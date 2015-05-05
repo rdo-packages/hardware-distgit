@@ -1,17 +1,19 @@
 %{?!_licensedir:%global license %%doc}
+%{!?upstream_version: %global upstream_version %{version}}
+
 %if 0%{?fedora}
 %global with_python3 1
 %endif
 
 Name:           python-hardware
 Summary:        Hardware detection and classification utilities
-Version:        0.11
-Release:        1%{?dist}
+Version:        0.14
+Release:        2%{?dist}
 License:        ASL 2.0
 Group:          Development/Languages
 URL:            https://pypi.python.org/pypi/hardware
 
-Source0:        https://pypi.python.org/packages/source/h/hardware/hardware-%{version}.tar.gz
+Source0:        https://pypi.python.org/packages/source/h/hardware/hardware-%{upstream_version}.tar.gz
 
 BuildArch:      noarch
 BuildRequires:  python-setuptools
@@ -23,6 +25,7 @@ BuildRequires:  python3-pbr
 BuildRequires:  python-pbr
 BuildRequires:  python-sphinx
 BuildRequires:  python-oslo-sphinx
+BuildRequires:  git
 Requires: python-babel
 Requires: python-ipaddr
 Requires: python-netaddr
@@ -33,7 +36,7 @@ Requires: python-pbr
 
 
 %prep
-%autosetup -v -p 1 -n hardware-%{upstream_version}
+%autosetup -S git -v -n hardware-%{upstream_version}
 rm -rf *.egg-info
 
 %if 0%{?with_python3}
@@ -72,7 +75,7 @@ Features:
 ** hard drives
 ** IPMI
 ** network cards
-** DMI infos
+** DMI info
 ** memory settings
 ** processor features
 * filter hardware according to hardware profiles
@@ -93,7 +96,7 @@ Features:
 ** hard drives
 ** IPMI
 ** network cards
-** DMI infos
+** DMI info
 ** memory settings
 ** processor features
 * filter hardware according to hardware profiles
@@ -112,8 +115,8 @@ Documentation for Hardware detection and classification utilities.
 %doc README.rst
 %{python2_sitelib}/hardware*
 %exclude %{python2_sitelib}/hardware/test*
-%{_bindir}/hardware-detect
 %{_bindir}/hardware-cardiff
+%{_bindir}/hardware-detect
 
 %files doc
 %license LICENSE
@@ -128,9 +131,21 @@ Documentation for Hardware detection and classification utilities.
 %endif # with_python3
 
 %changelog
+* Tue May 05 2015 Haïkel Guémar <hguemar@fedoraproject> - 0.14-2
+- Fix requirements
+- Add a patch to improve output of cardiff from John Trowbridge
+
+* Tue Mar 31 2015 Frederic Lepied <frederic.lepied@redhat.com> - 0.14-1
+- new version (bug #1196176)
+
+* Thu Mar 26 2015 Frederic Lepied <frederic.lepied@redhat.com> - 0.13-1
+- new version (bug #1196176)
+
+* Wed Mar 18 2015 Frederic Lepied <frederic.lepied@redhat.com> - 0.12-1
+- new version (bug #1196176)
+
 * Tue Feb 24 2015 Dmitry Tantsur <divius.inside@gmail.com> - 0.11-1
 - new version (bug #1195701)
 
 * Fri Feb 13 2015 Dmitry Tantsur <dtantsur@redhat.com> - 0.9-1
 - Initial package build
-
