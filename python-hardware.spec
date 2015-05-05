@@ -1,4 +1,6 @@
 %{?!_licensedir:%global license %%doc}
+%{!?upstream_version: %global upstream_version %{version}}
+
 %if 0%{?fedora}
 %global with_python3 1
 %endif
@@ -6,12 +8,14 @@
 Name:           python-hardware
 Summary:        Hardware detection and classification utilities
 Version:        0.14
-Release:        1%{?dist}
+Release:        2%{?dist}
 License:        ASL 2.0
 Group:          Development/Languages
 URL:            https://pypi.python.org/pypi/hardware
 
-Source0:        https://pypi.python.org/packages/source/h/hardware/hardware-%{version}.tar.gz
+Source0:        https://pypi.python.org/packages/source/h/hardware/hardware-%{upstream_version}.tar.gz
+
+Patch0001:      0001-Fix-empty-print-statements.patch
 
 BuildArch:      noarch
 BuildRequires:  python-setuptools
@@ -23,14 +27,18 @@ BuildRequires:  python3-pbr
 BuildRequires:  python-pbr
 BuildRequires:  python-sphinx
 BuildRequires:  python-oslo-sphinx
+BuildRequires:  git
 Requires: python-babel
 Requires: python-ipaddr
 Requires: python-netaddr
 Requires: python-pexpect
+Requires: python-ptyprocess
+Requires: python-pandas
+Requires: python-pbr
 
 
 %prep
-%autosetup -v -p 1 -n hardware-%{version}
+%autosetup -S git -v -n hardware-%{upstream_version}
 rm -rf *.egg-info
 
 %if 0%{?with_python3}
@@ -125,6 +133,10 @@ Documentation for Hardware detection and classification utilities.
 %endif # with_python3
 
 %changelog
+* Tue May 05 2015 Haïkel Guémar <hguemar@fedoraproject> - 0.14-2
+- Fix requirements
+- Add a patch to improve output of cardiff from John Trowbridge
+
 * Tue Mar 31 2015 Frederic Lepied <frederic.lepied@redhat.com> - 0.14-1
 - new version (bug #1196176)
 
