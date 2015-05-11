@@ -7,15 +7,13 @@
 
 Name:           python-hardware
 Summary:        Hardware detection and classification utilities
-Version:        0.14
-Release:        2%{?dist}
+Version:        0.15
+Release:        1%{?dist}
 License:        ASL 2.0
 Group:          Development/Languages
 URL:            https://pypi.python.org/pypi/hardware
 
 Source0:        https://pypi.python.org/packages/source/h/hardware/hardware-%{upstream_version}.tar.gz
-
-Patch0001:      0001-Fix-empty-print-statements.patch
 
 BuildArch:      noarch
 BuildRequires:  python-setuptools
@@ -133,6 +131,9 @@ Documentation for Hardware detection and classification utilities.
 %endif # with_python3
 
 %changelog
+* Mon May 11 2015 Frederic Lepied <frederic.lepied@redhat.com> - 0.15-1
+- new version (bug #1196176)
+
 * Tue May 05 2015 Haïkel Guémar <hguemar@fedoraproject> - 0.14-2
 - Fix requirements
 - Add a patch to improve output of cardiff from John Trowbridge
