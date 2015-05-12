@@ -29,7 +29,11 @@ BuildRequires:  git
 Requires: python-babel
 Requires: python-ipaddr
 Requires: python-netaddr
+%if 0%{?fedora}
 Requires: python-pexpect
+%else
+Requires: pexpect
+%endif
 Requires: python-ptyprocess
 Requires: python-pandas
 Requires: python-pbr
