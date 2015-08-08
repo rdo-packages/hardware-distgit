@@ -7,8 +7,8 @@
 
 Name:           python-hardware
 Summary:        Hardware detection and classification utilities
-Version:        0.15
-Release:        2%{?dist}
+Version:        0.16
+Release:        1%{?dist}
 License:        ASL 2.0
 Group:          Development/Languages
 URL:            https://pypi.python.org/pypi/hardware
@@ -131,6 +131,9 @@ Documentation for Hardware detection and classification utilities.
 %endif # with_python3
 
 %changelog
+* Sat Aug  8 2015 Frederic Lepied <frederic.lepied@redhat.com> 0.16-1
+- new version (bug #1196176)
+
 * Thu Jun 18 2015 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 0.15-2
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_23_Mass_Rebuild
 
