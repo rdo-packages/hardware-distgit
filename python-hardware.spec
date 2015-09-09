@@ -7,10 +7,9 @@
 
 Name:           python-hardware
 Summary:        Hardware detection and classification utilities
-Version:        0.14
-Release:        2%{?dist}
+Version:        XXX
+Release:        XXX
 License:        ASL 2.0
-Group:          Development/Languages
 URL:            https://pypi.python.org/pypi/hardware
 
 Source0:        https://pypi.python.org/packages/source/h/hardware/hardware-%{upstream_version}.tar.gz
@@ -135,21 +134,3 @@ Documentation for Hardware detection and classification utilities.
 %endif # with_python3
 
 %changelog
-* Tue May 05 2015 Haïkel Guémar <hguemar@fedoraproject> - 0.14-2
-- Fix requirements
-- Add a patch to improve output of cardiff from John Trowbridge
-
-* Tue Mar 31 2015 Frederic Lepied <frederic.lepied@redhat.com> - 0.14-1
-- new version (bug #1196176)
-
-* Thu Mar 26 2015 Frederic Lepied <frederic.lepied@redhat.com> - 0.13-1
-- new version (bug #1196176)
-
-* Wed Mar 18 2015 Frederic Lepied <frederic.lepied@redhat.com> - 0.12-1
-- new version (bug #1196176)
-
-* Tue Feb 24 2015 Dmitry Tantsur <divius.inside@gmail.com> - 0.11-1
-- new version (bug #1195701)
-
-* Fri Feb 13 2015 Dmitry Tantsur <dtantsur@redhat.com> - 0.9-1
-- Initial package build
