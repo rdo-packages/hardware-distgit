@@ -10,7 +10,6 @@ Summary:        Hardware detection and classification utilities
 Version:        0.16
 Release:        1%{?dist}
 License:        ASL 2.0
-Group:          Development/Languages
 URL:            https://pypi.python.org/pypi/hardware
 
 Source0:        https://pypi.python.org/packages/source/h/hardware/hardware-%{upstream_version}.tar.gz
@@ -29,7 +28,11 @@ BuildRequires:  git
 Requires: python-babel
 Requires: python-ipaddr
 Requires: python-netaddr
+%if 0%{?fedora}
 Requires: python-pexpect
+%else
+Requires: pexpect
+%endif
 Requires: python-ptyprocess
 Requires: python-pandas
 Requires: python-pbr
