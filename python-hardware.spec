@@ -25,6 +25,7 @@ BuildRequires:  python-pbr
 BuildRequires:  python-sphinx
 BuildRequires:  python-oslo-sphinx
 BuildRequires:  git
+Requires: fio
 Requires: python-babel
 Requires: python-ipaddr
 Requires: python-netaddr
@@ -36,6 +37,7 @@ Requires: pexpect
 Requires: python-ptyprocess
 Requires: python-pandas
 Requires: python-pbr
+Requires: sysbench
 
 
 %prep
