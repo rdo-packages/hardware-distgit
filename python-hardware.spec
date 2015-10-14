@@ -8,7 +8,7 @@
 Name:           python-hardware
 Summary:        Hardware detection and classification utilities
 Version:        0.17
-Release:        1%{?dist}
+Release:        2%{?dist}
 License:        ASL 2.0
 URL:            https://pypi.python.org/pypi/hardware
 
@@ -36,6 +36,12 @@ Requires: pexpect
 Requires: python-ptyprocess
 Requires: python-pandas
 Requires: python-pbr
+Requires: sysbench
+Requires: fio
+Requires: lshw
+Requires: smartmontools
+Requires: lldpad
+Requires: sdparm
 
 
 %prep
@@ -134,6 +140,10 @@ Documentation for Hardware detection and classification utilities.
 %endif # with_python3
 
 %changelog
+* Wed Oct 14 2015 Frederic Lepied <frederic.lepied@redhat.com> 0.17-2
+- add missing requires: lshw, smartmontools, lldpad, sdparm (Erwan)
+- add missing requires: fio (taken from Delorean)
+
 * Wed Sep 23 2015 Frederic Lepied <frederic.lepied@redhat.com> 0.17-1
 - new version (bug #1196176)
 
