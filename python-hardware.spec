@@ -8,7 +8,7 @@
 Name:           python-hardware
 Summary:        Hardware detection and classification utilities
 Version:        0.17
-Release:        2%{?dist}
+Release:        3%{?dist}
 License:        ASL 2.0
 URL:            https://pypi.python.org/pypi/hardware
 
@@ -140,6 +140,9 @@ Documentation for Hardware detection and classification utilities.
 %endif # with_python3
 
 %changelog
+* Tue Nov 10 2015 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 0.17-3
+- Rebuilt for https://fedoraproject.org/wiki/Changes/python3.5
+
 * Wed Oct 14 2015 Frederic Lepied <frederic.lepied@redhat.com> 0.17-2
 - add missing requires: lshw, smartmontools, lldpad, sdparm (Erwan)
 - add missing requires: fio (taken from Delorean)
