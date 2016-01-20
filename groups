@@ -1,3 +1,5 @@
-# UUID                                  	Group Name
-#
-604763f4f3b548fda73bafbafced0d7860d0572a	hardware-distgit-ptl
+# UUID          Group Name
+6ddfecad023c6f4fa3ac8c4d2583c502ea675a73 	Non-Interactive Users
+f70fe47482a2c2c4520f002d97e71120369f6948       	hardware-distgit-core
+604763f4f3b548fda73bafbafced0d7860d0572a        	hardware-distgit-ptl
+global:Registered-Users		Registered Users
