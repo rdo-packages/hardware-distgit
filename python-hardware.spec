@@ -8,7 +8,7 @@
 Name:           python-hardware
 Summary:        Hardware detection and classification utilities
 Version:        0.17
-Release:        4%{?dist}
+Release:        5%{?dist}
 License:        ASL 2.0
 URL:            https://pypi.python.org/pypi/hardware
 
@@ -46,7 +46,7 @@ Requires: sdparm
 
 %prep
 %autosetup -S git -v -n hardware-%{upstream_version}
-rm -rf *.egg-info
+rm -rf *.egg-info hardware/tests hardware/cardiff/VMs
 
 %if 0%{?with_python3}
 rm -rf %{py3dir}
@@ -123,7 +123,6 @@ Documentation for Hardware detection and classification utilities.
 %license LICENSE
 %doc README.rst
 %{python2_sitelib}/hardware*
-%exclude %{python2_sitelib}/hardware/test*
 %{_bindir}/hardware-cardiff
 %{_bindir}/hardware-detect
 
@@ -136,10 +135,12 @@ Documentation for Hardware detection and classification utilities.
 %license LICENSE
 %doc README.rst
 %{python3_sitelib}/hardware*
-%exclude %{python3_sitelib}/hardware/test*
 %endif # with_python3
 
 %changelog
+* Wed Feb 10 2016 Frederic Lepied <frederic.lepied@redhat.com> 0.17-5.fc24
+- exclude examples
+
 * Thu Feb 04 2016 Fedora Release Engineering <releng@fedoraproject.org> - 0.17-4
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_24_Mass_Rebuild
 
