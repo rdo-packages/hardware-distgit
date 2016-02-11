@@ -8,7 +8,7 @@
 Name:           python-hardware
 Summary:        Hardware detection and classification utilities
 Version:        0.17
-Release:        5%{?dist}
+Release:        6%{?dist}
 License:        ASL 2.0
 URL:            https://pypi.python.org/pypi/hardware
 
@@ -25,23 +25,10 @@ BuildRequires:  python-pbr
 BuildRequires:  python-sphinx
 BuildRequires:  python-oslo-sphinx
 BuildRequires:  git
+Requires: python-hardware-detect = %{version}-%{release}
 Requires: python-babel
-Requires: python-ipaddr
-Requires: python-netaddr
-%if 0%{?fedora}
-Requires: python-pexpect
-%else
-Requires: pexpect
-%endif
-Requires: python-ptyprocess
 Requires: python-pandas
 Requires: python-pbr
-Requires: sysbench
-Requires: fio
-Requires: lshw
-Requires: smartmontools
-Requires: lldpad
-Requires: sdparm
 
 
 %prep
@@ -111,6 +98,29 @@ Features:
 * filter hardware according to hardware profiles
 %endif # with_python3
 
+%package detect
+Summary:    Hardware detection and classification utilities
+Requires: lshw
+Requires: smartmontools
+Requires: lldpad
+Requires: sdparm
+Requires: sysbench
+Requires: fio
+Requires: python-ipaddr
+Requires: python-netaddr
+%if 0%{?fedora}
+Requires: python-pexpect
+%else
+Requires: pexpect
+%endif
+Requires: python-ptyprocess
+Requires: ethtool
+Requires: pciutils
+
+%description detect
+Hardware detection and classification utilities.
+
+
 %package doc
 Summary:    Documentation for Hardware detection and classification utilities
 Group:      Documentation
@@ -122,9 +132,16 @@ Documentation for Hardware detection and classification utilities.
 %files
 %license LICENSE
 %doc README.rst
-%{python2_sitelib}/hardware*
+%{python2_sitelib}/hardware/cardiff
 %{_bindir}/hardware-cardiff
+
+%files detect
+%license LICENSE
+%doc README.rst
 %{_bindir}/hardware-detect
+%{python2_sitelib}/hardware/benchmark
+%{python2_sitelib}/hardware/*.py*
+%{python2_sitelib}/hardware*.egg-info
 
 %files doc
 %license LICENSE
@@ -138,7 +155,11 @@ Documentation for Hardware detection and classification utilities.
 %endif # with_python3
 
 %changelog
-* Wed Feb 10 2016 Frederic Lepied <frederic.lepied@redhat.com> 0.17-5.fc24
+* Thu Feb 11 2016 Frederic Lepied <frederic.lepied@redhat.com> 0.17-6
+- split the detect part in a standalone package python-hardware-detect
+- fix the missing requires: ethtool and pcitutils
+
+* Wed Feb 10 2016 Frederic Lepied <frederic.lepied@redhat.com> 0.17-5
 - exclude examples
 
 * Thu Feb 04 2016 Fedora Release Engineering <releng@fedoraproject.org> - 0.17-4
