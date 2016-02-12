@@ -25,23 +25,14 @@ BuildRequires:  python-pbr
 BuildRequires:  python-sphinx
 BuildRequires:  python-oslo-sphinx
 BuildRequires:  git
-Requires: fio
+Requires: python-hardware-detect = %{version}-%{release}
 Requires: python-babel
-Requires: python-ipaddr
-Requires: python-netaddr
-%if 0%{?fedora}
-Requires: python-pexpect
-%else
-Requires: pexpect
-%endif
-Requires: python-ptyprocess
 Requires: python-pandas
 Requires: python-pbr
-Requires: sysbench
 
 
 %prep
-%autosetup -S git -v -n hardware-%{upstream_version}
+%autosetup -S git -n hardware-%{upstream_version}
 rm -rf *.egg-info
 
 %if 0%{?with_python3}
@@ -107,6 +98,29 @@ Features:
 * filter hardware according to hardware profiles
 %endif # with_python3
 
+%package detect
+Summary:    Hardware detection and classification utilities
+Requires: lshw
+Requires: smartmontools
+Requires: lldpad
+Requires: sdparm
+Requires: sysbench
+Requires: fio
+Requires: python-ipaddr
+Requires: python-netaddr
+%if 0%{?fedora}
+Requires: python-pexpect
+%else
+Requires: pexpect
+%endif
+Requires: python-ptyprocess
+Requires: ethtool
+Requires: pciutils
+
+%description detect
+Hardware detection and classification utilities.
+
+
 %package doc
 Summary:    Documentation for Hardware detection and classification utilities
 Group:      Documentation
@@ -118,10 +132,17 @@ Documentation for Hardware detection and classification utilities.
 %files
 %license LICENSE
 %doc README.rst
-%{python2_sitelib}/hardware*
-%exclude %{python2_sitelib}/hardware/test*
+%{python2_sitelib}/hardware/cardiff
 %{_bindir}/hardware-cardiff
+%{python2_sitelib}/hardware/test*
+
+%files detect
+%license LICENSE
+%doc README.rst
 %{_bindir}/hardware-detect
+%{python2_sitelib}/hardware/benchmark
+%{python2_sitelib}/hardware/*.py*
+%{python2_sitelib}/hardware*.egg-info
 
 %files doc
 %license LICENSE
