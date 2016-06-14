@@ -80,6 +80,7 @@ Features:
 %package -n python3-hardware
 Summary:        Hardware detection and classification utilities
 Group:          Development/Languages
+Requires: python3-pbr
 Requires: python3-babel
 Requires: python3-netaddr
 Requires: python3-pexpect
@@ -106,6 +107,7 @@ Requires: lldpad
 Requires: sdparm
 Requires: sysbench
 Requires: fio
+Requires: python-pbr
 Requires: python-ipaddr
 Requires: python-netaddr
 %if 0%{?fedora}
