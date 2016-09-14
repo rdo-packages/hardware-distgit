@@ -12,7 +12,7 @@ Release:        XXX
 License:        ASL 2.0
 URL:            https://pypi.python.org/pypi/hardware
 
-Source0:        https://pypi.python.org/packages/source/h/hardware/hardware-%{upstream_version}.tar.gz
+Source0:        https://tarballs.openstack.org/hardware/hardware-%{upstream_version}.tar.gz
 
 BuildArch:      noarch
 BuildRequires:  python-setuptools
