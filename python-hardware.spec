@@ -20,8 +20,10 @@ BuildRequires:  python2-devel
 %if 0%{?with_python3}
 BuildRequires:  python3-devel
 BuildRequires:  python3-pbr
+BuildRequires:  python3-six
 %endif # if with_python3
 BuildRequires:  python-pbr
+BuildRequires:  python-six
 BuildRequires:  python-sphinx
 BuildRequires:  python-oslo-sphinx
 BuildRequires:  git
@@ -29,6 +31,7 @@ Requires: python-hardware-detect = %{version}-%{release}
 Requires: python-babel
 Requires: python-pandas
 Requires: python-pbr
+Requires: python-six
 
 
 %prep
@@ -84,6 +87,7 @@ Requires: python3-pbr
 Requires: python3-babel
 Requires: python3-netaddr
 Requires: python3-pexpect
+Requires: python3-six
 
 %description -n python3-hardware
 Hardware detection and classification utilities.
