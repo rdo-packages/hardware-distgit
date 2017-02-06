@@ -27,6 +27,7 @@ BuildRequires:  python-six
 BuildRequires:  python-sphinx
 BuildRequires:  python-oslo-sphinx
 BuildRequires:  git
+Requires: numpy
 Requires: python-hardware-detect = %{version}-%{release}
 Requires: python-babel
 Requires: python-pandas
@@ -83,6 +84,7 @@ Features:
 %package -n python3-hardware
 Summary:        Hardware detection and classification utilities
 Group:          Development/Languages
+Requires: python3-numpy
 Requires: python3-pbr
 Requires: python3-babel
 Requires: python3-netaddr
