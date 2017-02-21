@@ -7,8 +7,8 @@
 
 Name:           python-hardware
 Summary:        Hardware detection and classification utilities
-Version:        XXX
-Release:        XXX
+Version:        0.18
+Release:        1%{?dist}
 License:        ASL 2.0
 URL:            https://pypi.python.org/pypi/hardware
 
@@ -165,3 +165,6 @@ Documentation for Hardware detection and classification utilities.
 %endif # with_python3
 
 %changelog
+* Tue Feb 21 2017 Alfredo Moralejo <amoralej@redhat.com> 0.18-1
+- Update to 0.18
+
