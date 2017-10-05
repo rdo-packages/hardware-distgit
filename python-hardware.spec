@@ -5,6 +5,19 @@
 %global with_python3 1
 %endif
 
+%global common_desc \
+Hardware detection and classification utilities. \
+Features: \
+* detect hardware features of a Linux systems: \
+** RAID \
+** hard drives \
+** IPMI \
+** network cards \
+** DMI info \
+** memory settings \
+** processor features \
+* filter hardware according to hardware profiles
+
 Name:           python-hardware
 Summary:        Hardware detection and classification utilities
 Version:        XXX
@@ -68,17 +81,7 @@ popd
 
 
 %description
-Hardware detection and classification utilities.
-Features:
-* detect hardware features of a Linux systems:
-** RAID
-** hard drives
-** IPMI
-** network cards
-** DMI info
-** memory settings
-** processor features
-* filter hardware according to hardware profiles
+%{common_desc}
 
 %if 0%{?with_python3}
 %package -n python3-hardware
@@ -92,17 +95,7 @@ Requires: python3-pexpect
 Requires: python3-six
 
 %description -n python3-hardware
-Hardware detection and classification utilities.
-Features:
-* detect hardware features of a Linux systems:
-** RAID
-** hard drives
-** IPMI
-** network cards
-** DMI info
-** memory settings
-** processor features
-* filter hardware according to hardware profiles
+%{common_desc}
 %endif # with_python3
 
 %package detect
@@ -126,7 +119,7 @@ Requires: ethtool
 Requires: pciutils
 
 %description detect
-Hardware detection and classification utilities.
+%{common_desc}
 
 
 %package doc
