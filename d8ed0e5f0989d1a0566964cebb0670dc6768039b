@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fa81d914_a7cdfd88",
+        "filename": "python-hardware.spec",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 424
+      },
+      "writtenOn": "2017-10-05T11:41:08Z",
+      "side": 1,
+      "message": "all needs escaping",
+      "range": {
+        "startLine": 8,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 48
+      },
+      "revId": "d8ed0e5f0989d1a0566964cebb0670dc6768039b",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    }
+  ]
+}
