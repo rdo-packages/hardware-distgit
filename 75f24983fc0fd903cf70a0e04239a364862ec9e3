@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fa81d914_ca691827",
+        "filename": "python-hardware.spec",
+        "patchSetId": 2
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 424
+      },
+      "writtenOn": "2017-10-06T03:32:54Z",
+      "side": 1,
+      "message": "use the global here too?",
+      "range": {
+        "startLine": 122,
+        "startChar": 0,
+        "endLine": 122,
+        "endChar": 8
+      },
+      "revId": "75f24983fc0fd903cf70a0e04239a364862ec9e3",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    }
+  ]
+}
