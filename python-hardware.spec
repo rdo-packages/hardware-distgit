@@ -28,24 +28,24 @@ URL:            https://pypi.python.org/pypi/hardware
 Source0:        https://pypi.io/packages/source/h/hardware/hardware-%{upstream_version}.tar.gz
 
 BuildArch:      noarch
-BuildRequires:  python-setuptools
+BuildRequires:  python2-setuptools
 BuildRequires:  python2-devel
 %if 0%{?with_python3}
 BuildRequires:  python3-devel
 BuildRequires:  python3-pbr
 BuildRequires:  python3-six
 %endif # if with_python3
-BuildRequires:  python-pbr
-BuildRequires:  python-six
-BuildRequires:  python-sphinx
-BuildRequires:  python-oslo-sphinx
+BuildRequires:  python2-pbr
+BuildRequires:  python2-six
+BuildRequires:  python2-sphinx
+BuildRequires:  python2-oslo-sphinx
 BuildRequires:  git
 Requires: numpy
 Requires: python-hardware-detect = %{version}-%{release}
-Requires: python-babel
-Requires: python-pandas
-Requires: python-pbr
-Requires: python-six
+Requires: python2-babel
+Requires: python2-pandas
+Requires: python2-pbr
+Requires: python2-six
 
 
 %prep
@@ -106,11 +106,11 @@ Requires: lldpad
 Requires: sdparm
 Requires: sysbench
 Requires: fio
-Requires: python-pbr
-Requires: python-ipaddr
-Requires: python-netaddr
+Requires: python2-pbr
+Requires: python2-ipaddr
+Requires: python2-netaddr
 %if 0%{?fedora}
-Requires: python-pexpect
+Requires: python2-pexpect
 %else
 Requires: pexpect
 %endif
