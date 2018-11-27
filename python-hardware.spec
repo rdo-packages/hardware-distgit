@@ -1,9 +1,16 @@
+# Macros for py2/py3 compatibility
+%if 0%{?fedora} || 0%{?rhel} > 7
+%global pyver %{python3_pkgversion}
+%else
+%global pyver 2
+%endif
+%global pyver_bin python%{pyver}
+%global pyver_sitelib %python%{pyver}_sitelib
+%global pyver_install %py%{pyver}_install
+%global pyver_build %py%{pyver}_build
+# End of macros for py2/py3 compatibility
 %{?!_licensedir:%global license %%doc}
 %{!?upstream_version: %global upstream_version %{version}}
-
-%if 0%{?fedora}
-%global with_python3 1
-%endif
 
 %global common_desc \
 Hardware detection and classification utilities. \
@@ -28,97 +35,80 @@ URL:            https://pypi.python.org/pypi/hardware
 Source0:        https://pypi.io/packages/source/h/hardware/hardware-%{upstream_version}.tar.gz
 
 BuildArch:      noarch
-BuildRequires:  python2-setuptools
-BuildRequires:  python2-devel
-%if 0%{?with_python3}
-BuildRequires:  python3-devel
-BuildRequires:  python3-pbr
-BuildRequires:  python3-six
-%endif # if with_python3
-BuildRequires:  python2-pbr
-BuildRequires:  python2-six
-BuildRequires:  python2-sphinx
-BuildRequires:  python2-oslo-sphinx
+
 BuildRequires:  git
+
+%description
+%{common_desc}
+
+
+%package -n python%{pyver}-hardware
+Summary:        Hardware detection and classification utilities
+%{?python_provide:%python_provide python%{pyver}-hardware}
+%if %{pyver} == 3
+Obsoletes: python2-hardware < %{version}-%{release}
+%endif
+
+BuildRequires:  python%{pyver}-setuptools
+BuildRequires:  python%{pyver}-devel
+BuildRequires:  python%{pyver}-pbr
+BuildRequires:  python%{pyver}-six
+BuildRequires:  python%{pyver}-sphinx
+BuildRequires:  python%{pyver}-oslo-sphinx
 Requires: numpy
-Requires: python-hardware-detect = %{version}-%{release}
-Requires: python2-babel
-Requires: python2-pandas
-Requires: python2-pbr
-Requires: python2-six
+Requires: python%{pyver}-hardware-detect = %{version}-%{release}
+Requires: python%{pyver}-babel
+Requires: python%{pyver}-pandas
+Requires: python%{pyver}-pbr
+Requires: python%{pyver}-six
 
 
 %prep
 %autosetup -S git -n hardware-%{upstream_version}
 rm -rf *.egg-info
 
-%if 0%{?with_python3}
-rm -rf %{py3dir}
-cp -a . %{py3dir}
-find %{py3dir} -name '*.py' | xargs sed -i '1s|^#!python|#!%{__python3}|'
-%endif # with_python3
-
-find -name '*.py' | xargs sed -i '1s|^#!python|#!%{__python2}|'
+find -name '*.py' | xargs sed -i '1s|^#!python|#!%{pyver_bin}|'
 
 %build
-%{__python2} setup.py build
-%{__python2} setup.py build_sphinx
+%{pyver_bin} setup.py build
+%{pyver_bin} setup.py build_sphinx
 rm -rf doc/build/html/.buildinfo
 
-%if 0%{?with_python3}
-pushd %{py3dir}
-%{__python3} setup.py build
-%endif # with_python3
-
 %install
-%if 0%{?with_python3}
-pushd %{py3dir}
-%{__python3} setup.py install --skip-build --root %{buildroot}
-popd
-%endif # with_python3
-
-%{__python2} setup.py install -O1 --skip-build --root=%{buildroot}
+%{pyver_install}
 
 
-%description
+%description -n python%{pyver}-hardware
 %{common_desc}
 
-%if 0%{?with_python3}
-%package -n python3-hardware
-Summary:        Hardware detection and classification utilities
-Group:          Development/Languages
-Requires: python3-numpy
-Requires: python3-pbr
-Requires: python3-babel
-Requires: python3-netaddr
-Requires: python3-pexpect
-Requires: python3-six
-
-%description -n python3-hardware
-%{common_desc}
-%endif # with_python3
-
-%package detect
+%package -n python%{pyver}-hardware-detect
 Summary:    Hardware detection and classification utilities
+%{?python_provide:%python_provide python%{pyver}-hardware-detect}
+%if %{pyver} == 3
+Obsoletes: python2-hardware-detect < %{version}-%{release}
+%endif
+
 Requires: lshw
 Requires: smartmontools
 Requires: lldpad
 Requires: sdparm
 Requires: sysbench
 Requires: fio
-Requires: python2-pbr
-Requires: python-ipaddr
-Requires: python2-netaddr
-%if 0%{?fedora}
-Requires: python2-pexpect
-%else
-Requires: pexpect
-%endif
-Requires: python-ptyprocess
+Requires: python%{pyver}-pbr
+Requires: python%{pyver}-netaddr
+Requires: python%{pyver}-pexpect
+Requires: python%{pyver}-ptyprocess
 Requires: ethtool
 Requires: pciutils
 
-%description detect
+# Handle python2 exception
+%if %{pyver} == 2
+Requires: python-ipaddr
+%else
+Requires: python%{pyver}-ipaddr
+%endif
+
+%description -n python%{pyver}-hardware-detect
 %{common_desc}
 
 
@@ -130,31 +120,23 @@ Group:      Documentation
 Documentation for Hardware detection and classification utilities.
 
 
-%files
+%files -n python%{pyver}-hardware
 %license LICENSE
 %doc README.rst
-%{python2_sitelib}/hardware/cardiff
+%{pyver_sitelib}/hardware/cardiff
 %{_bindir}/hardware-cardiff
-%{python2_sitelib}/hardware/test*
+%{pyver_sitelib}/hardware/test*
 
-%files detect
+%files -n python%{pyver}-hardware-detect
 %license LICENSE
 %doc README.rst
 %{_bindir}/hardware-detect
-%{python2_sitelib}/hardware/benchmark
-%{python2_sitelib}/hardware/*.py*
-%{python2_sitelib}/hardware*.egg-info
+%{pyver_sitelib}/hardware/benchmark
+%{pyver_sitelib}/hardware/*.py*
+%{pyver_sitelib}/hardware*.egg-info
 
 %files doc
 %license LICENSE
 %doc doc/build/html
-
-%if 0%{?with_python3}
-%files -n python3-hardware
-%license LICENSE
-%doc README.rst
-%{python3_sitelib}/hardware*
-%exclude %{python3_sitelib}/hardware/test*
-%endif # with_python3
 
 %changelog
