@@ -70,7 +70,7 @@ rm -rf *.egg-info
 find -name '*.py' | xargs sed -i '1s|^#!python|#!%{pyver_bin}|'
 
 %build
-%{pyver_bin} setup.py build
+%{pyver_build}
 %{pyver_bin} setup.py build_sphinx
 rm -rf doc/build/html/.buildinfo
 
