@@ -91,7 +91,6 @@ Obsoletes: python2-hardware-detect < %{version}-%{release}
 Requires: lshw
 Requires: smartmontools
 Requires: lldpad
-Requires: sdparm
 Requires: sysbench
 Requires: fio
 Requires: python%{pyver}-pbr
