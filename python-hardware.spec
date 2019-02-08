@@ -55,7 +55,11 @@ BuildRequires:  python%{pyver}-pbr
 BuildRequires:  python%{pyver}-six
 BuildRequires:  python%{pyver}-sphinx
 BuildRequires:  python%{pyver}-oslo-sphinx
+%if %{pyver} > 2 || 0%{?rhel} > 7
+Requires: python%{pyver}-numpy
+%else
 Requires: numpy
+%endif
 Requires: python%{pyver}-hardware-detect = %{version}-%{release}
 Requires: python%{pyver}-babel
 Requires: python%{pyver}-pandas
