@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d88e2f68_96c6c45a",
+        "filename": "python-hardware.spec",
+        "patchSetId": 2
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 403
+      },
+      "writtenOn": "2019-02-11T06:41:53Z",
+      "side": 1,
+      "message": "shouldn\u0027t be needed as already covered in Line 2.",
+      "range": {
+        "startLine": 58,
+        "startChar": 17,
+        "endLine": 58,
+        "endChar": 33
+      },
+      "revId": "3cb64cf5e41981d7263c91f865d9a7704942b7ca",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    }
+  ]
+}
