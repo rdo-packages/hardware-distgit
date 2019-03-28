@@ -66,22 +66,6 @@ Requires: python%{pyver}-pandas
 Requires: python%{pyver}-pbr
 Requires: python%{pyver}-six
 
-
-%prep
-%autosetup -S git -n hardware-%{upstream_version}
-rm -rf *.egg-info
-
-find -name '*.py' | xargs sed -i '1s|^#!python|#!%{pyver_bin}|'
-
-%build
-%{pyver_build}
-%{pyver_bin} setup.py build_sphinx
-rm -rf doc/build/html/.buildinfo
-
-%install
-%{pyver_install}
-
-
 %description -n python%{pyver}-hardware
 %{common_desc}
 
@@ -120,6 +104,19 @@ Group:      Documentation
 %description doc
 Documentation for Hardware detection and classification utilities.
 
+%prep
+%autosetup -S git -n hardware-%{upstream_version}
+rm -rf *.egg-info
+
+find -name '*.py' | xargs sed -i '1s|^#!python|#!%{pyver_bin}|'
+
+%build
+%{pyver_build}
+%{pyver_bin} setup.py build_sphinx
+rm -rf doc/build/html/.buildinfo
+
+%install
+%{pyver_install}
 
 %files -n python%{pyver}-hardware
 %license LICENSE
