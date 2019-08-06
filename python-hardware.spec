@@ -12,6 +12,8 @@
 %{?!_licensedir:%global license %%doc}
 %{!?upstream_version: %global upstream_version %{version}}
 
+%global with_doc 1
+
 %global common_desc \
 Hardware detection and classification utilities. \
 Features: \
@@ -53,8 +55,6 @@ BuildRequires:  python%{pyver}-setuptools
 BuildRequires:  python%{pyver}-devel
 BuildRequires:  python%{pyver}-pbr
 BuildRequires:  python%{pyver}-six
-BuildRequires:  python%{pyver}-sphinx
-BuildRequires:  python%{pyver}-oslo-sphinx
 %if %{pyver} == 3
 Requires: python%{pyver}-numpy
 %else
@@ -97,12 +97,17 @@ Requires: python-ipaddr
 %{common_desc}
 
 
+%if 0%{?with_doc}
 %package doc
 Summary:    Documentation for Hardware detection and classification utilities
 Group:      Documentation
 
+BuildRequires:  python%{pyver}-sphinx
+BuildRequires:  python%{pyver}-oslo-sphinx
+
 %description doc
 Documentation for Hardware detection and classification utilities.
+%endif
 
 %prep
 %autosetup -S git -n hardware-%{upstream_version}
@@ -112,8 +117,11 @@ find -name '*.py' | xargs sed -i '1s|^#!python|#!%{pyver_bin}|'
 
 %build
 %{pyver_build}
+
+%if 0%{?with_doc}
 %{pyver_bin} setup.py build_sphinx
 rm -rf doc/build/html/.buildinfo
+%endif
 
 %install
 %{pyver_install}
@@ -136,8 +144,10 @@ rm -rf doc/build/html/.buildinfo
 %{pyver_sitelib}/hardware/*.py*
 %{pyver_sitelib}/hardware*.egg-info
 
+%if 0%{?with_doc}
 %files doc
 %license LICENSE
 %doc doc/build/html
+%endif
 
 %changelog
