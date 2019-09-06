@@ -90,7 +90,7 @@ Requires: pciutils
 
 # Handle python2 exception
 %if %{pyver} == 2
-Requires: python-ipaddr
+Requires: python-ipaddress
 %endif
 
 %description -n python%{pyver}-hardware-detect
