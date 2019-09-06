@@ -83,6 +83,7 @@ Requires: sysbench
 Requires: fio
 Requires: python%{pyver}-pbr
 Requires: python%{pyver}-netaddr
+Requires: python%{pyver}-ipaddress
 Requires: python%{pyver}-pexpect
 Requires: python%{pyver}-ptyprocess
 Requires: ethtool
