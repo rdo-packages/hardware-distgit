@@ -53,6 +53,7 @@ Obsoletes: python2-hardware < %{version}-%{release}
 
 BuildRequires:  python%{pyver}-setuptools
 BuildRequires:  python%{pyver}-devel
+BuildRequires:  python%{pyver}-babel
 BuildRequires:  python%{pyver}-pbr
 BuildRequires:  python%{pyver}-six
 %if %{pyver} == 3
@@ -61,7 +62,6 @@ Requires: python%{pyver}-numpy
 Requires: numpy
 %endif
 Requires: python%{pyver}-hardware-detect = %{version}-%{release}
-Requires: python%{pyver}-babel
 Requires: python%{pyver}-pandas
 Requires: python%{pyver}-pbr
 Requires: python%{pyver}-six
@@ -103,7 +103,6 @@ Summary:    Documentation for Hardware detection and classification utilities
 Group:      Documentation
 
 BuildRequires:  python%{pyver}-sphinx
-BuildRequires:  python%{pyver}-oslo-sphinx
 
 %description doc
 Documentation for Hardware detection and classification utilities.
