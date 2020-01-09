@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4e5f7456_9fc84019",
+        "filename": "python-hardware.spec",
+        "patchSetId": 1
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 128
+      },
+      "writtenOn": "2020-01-09T10:51:09Z",
+      "side": 1,
+      "message": "oslo-sphinx has been removed too in the referred commit. Could it be cleaned?",
+      "range": {
+        "startLine": 106,
+        "startChar": 0,
+        "endLine": 106,
+        "endChar": 42
+      },
+      "revId": "da18052e418657242d92a50bba653897e9a5becc",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    }
+  ]
+}
