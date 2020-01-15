@@ -29,7 +29,7 @@ Features: \
 
 Name:           python-hardware
 Summary:        Hardware detection and classification utilities
-Version:        0.21.1
+Version:        0.23.0
 Release:        1%{?dist}
 License:        ASL 2.0
 URL:            https://pypi.python.org/pypi/hardware
@@ -150,6 +150,9 @@ rm -rf doc/build/html/.buildinfo
 %endif
 
 %changelog
+* Wed Jan 15 2020 Dmitry Tantsur <dtantsur@protonmail.com> 0.23.0-1
+- Update to 0.23.0
+
 * Wed Sep 25 2019 RDO <dev@lists.rdoproject.org> 0.21.1-1
 - Update to 0.21.1
 
