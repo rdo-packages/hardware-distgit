@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ea47f7eb_17255854",
+        "filename": "python-hardware.spec",
+        "patchSetId": 2
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 113
+      },
+      "writtenOn": "2020-01-16T17:34:01Z",
+      "side": 1,
+      "message": "The patch is also removing numpy and pandas from requirements.txt, let\u0027s do it here too.",
+      "range": {
+        "startLine": 59,
+        "startChar": 0,
+        "endLine": 65,
+        "endChar": 31
+      },
+      "revId": "ad93e2bd3a19cd39973d864a280efaa04ee6eb0c",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    }
+  ]
+}
