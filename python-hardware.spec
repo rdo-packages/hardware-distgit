@@ -156,3 +156,4 @@ rm -rf doc/build/html/.buildinfo
 * Wed Sep 25 2019 RDO <dev@lists.rdoproject.org> 0.21.1-1
 - Update to 0.21.1
 
+# REMOVEME: error caused by commit https://github.com/redhat-cip/hardware.git/commit/7c4c38866f658f9de88c68200e2206fb46c5f3eb
