@@ -128,8 +128,6 @@ rm -rf doc/build/html/.buildinfo
 %files -n python%{pyver}-hardware
 %license LICENSE
 %doc README.rst
-%{pyver_sitelib}/hardware/cardiff
-%{_bindir}/hardware-cardiff
 %{pyver_sitelib}/hardware/test*
 %if %{pyver} == 3
 %{pyver_sitelib}/hardware/__pycache__
