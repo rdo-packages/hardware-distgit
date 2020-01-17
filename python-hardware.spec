@@ -56,13 +56,7 @@ BuildRequires:  python%{pyver}-devel
 BuildRequires:  python%{pyver}-babel
 BuildRequires:  python%{pyver}-pbr
 BuildRequires:  python%{pyver}-six
-%if %{pyver} == 3
-Requires: python%{pyver}-numpy
-%else
-Requires: numpy
-%endif
 Requires: python%{pyver}-hardware-detect = %{version}-%{release}
-Requires: python%{pyver}-pandas
 Requires: python%{pyver}-pbr
 Requires: python%{pyver}-six
 
