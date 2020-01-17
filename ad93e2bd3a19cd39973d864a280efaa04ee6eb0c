@@ -46,6 +46,30 @@
       "revId": "ad93e2bd3a19cd39973d864a280efaa04ee6eb0c",
       "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "88e6db8f_71755065",
+        "filename": "python-hardware.spec",
+        "patchSetId": 2
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 403
+      },
+      "writtenOn": "2020-01-17T05:32:24Z",
+      "side": 1,
+      "message": "ack",
+      "parentUuid": "ea47f7eb_17255854",
+      "range": {
+        "startLine": 59,
+        "startChar": 0,
+        "endLine": 65,
+        "endChar": 31
+      },
+      "revId": "ad93e2bd3a19cd39973d864a280efaa04ee6eb0c",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
     }
   ]
 }
