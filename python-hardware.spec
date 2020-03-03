@@ -56,13 +56,7 @@ BuildRequires:  python%{pyver}-devel
 BuildRequires:  python%{pyver}-babel
 BuildRequires:  python%{pyver}-pbr
 BuildRequires:  python%{pyver}-six
-%if %{pyver} == 3
-Requires: python%{pyver}-numpy
-%else
-Requires: numpy
-%endif
 Requires: python%{pyver}-hardware-detect = %{version}-%{release}
-Requires: python%{pyver}-pandas
 Requires: python%{pyver}-pbr
 Requires: python%{pyver}-six
 
@@ -124,12 +118,13 @@ rm -rf doc/build/html/.buildinfo
 
 %install
 %{pyver_install}
+# These can be removed when https://review.rdoproject.org/r/#/c/30059/ is merged
+rm -rf %{buildroot}/%{pyver_sitelib}/hardware/cardiff || true
+rm -f %{buildroot}/%{_bindir}/hardware-cardiff
 
 %files -n python%{pyver}-hardware
 %license LICENSE
 %doc README.rst
-%{pyver_sitelib}/hardware/cardiff
-%{_bindir}/hardware-cardiff
 %{pyver_sitelib}/hardware/test*
 %if %{pyver} == 3
 %{pyver_sitelib}/hardware/__pycache__
