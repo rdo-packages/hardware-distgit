@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "9a95f5d5_e8fb045e",
+        "filename": "python-hardware.spec",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 635
+      },
+      "writtenOn": "2020-04-16T10:51:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e1782632_d4635d8c",
+      "revId": "dbbdeeaa06c540a9f6b9c06a51292b2d9495773f",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "84b48d7e_8adbf617",
         "filename": "python-hardware.spec",
         "patchSetId": 1
@@ -30,6 +48,24 @@
       "writtenOn": "2020-04-16T10:03:50Z",
       "side": 1,
       "message": "six is not needed anymore",
+      "revId": "dbbdeeaa06c540a9f6b9c06a51292b2d9495773f",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b20a4c82_4e4bb9ff",
+        "filename": "python-hardware.spec",
+        "patchSetId": 1
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 635
+      },
+      "writtenOn": "2020-04-16T10:51:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "84b48d7e_8adbf617",
       "revId": "dbbdeeaa06c540a9f6b9c06a51292b2d9495773f",
       "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
       "unresolved": false
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "d5440ee4_5d20fdee",
+        "filename": "python-hardware.spec",
+        "patchSetId": 1
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 635
+      },
+      "writtenOn": "2020-04-16T10:51:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "28fc08ff_bdb6bc99",
+      "revId": "dbbdeeaa06c540a9f6b9c06a51292b2d9495773f",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "46b36ec8_cf899fb8",
         "filename": "python-hardware.spec",
         "patchSetId": 1
@@ -64,6 +118,24 @@
       "writtenOn": "2020-04-16T10:03:50Z",
       "side": 1,
       "message": "this is a dependency of pexpect so I guess we can drop it ?",
+      "revId": "dbbdeeaa06c540a9f6b9c06a51292b2d9495773f",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "26bedce5_d42a1fbb",
+        "filename": "python-hardware.spec",
+        "patchSetId": 1
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 635
+      },
+      "writtenOn": "2020-04-16T10:51:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "46b36ec8_cf899fb8",
       "revId": "dbbdeeaa06c540a9f6b9c06a51292b2d9495773f",
       "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
       "unresolved": false
