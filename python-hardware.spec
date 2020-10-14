@@ -118,9 +118,6 @@ rm -rf doc/build/html/.buildinfo
 
 %install
 %{pyver_install}
-# These can be removed when https://review.rdoproject.org/r/#/c/30059/ is merged
-rm -rf %{buildroot}/%{pyver_sitelib}/hardware/cardiff || true
-rm -f %{buildroot}/%{_bindir}/hardware-cardiff
 
 %files -n python%{pyver}-hardware
 %license LICENSE
