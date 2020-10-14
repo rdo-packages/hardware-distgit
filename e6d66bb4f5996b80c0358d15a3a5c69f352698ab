@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c284f8c2_2f514e96",
+        "filename": "python-hardware.spec",
+        "patchSetId": 6
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 147
+      },
+      "writtenOn": "2020-10-14T19:10:41Z",
+      "side": 1,
+      "message": "This line should be reworded, as this workaround is now the actual solution to removing cardiff (and X11 dependencies) from the train version of python-hardware",
+      "revId": "e6d66bb4f5996b80c0358d15a3a5c69f352698ab",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    }
+  ]
+}
