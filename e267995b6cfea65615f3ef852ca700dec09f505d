@@ -1,0 +1,10 @@
+Code-Review+1: Jon Schlueter <jschluet@redhat.com>
+Code-Review+2: Yatin Karel <ykarel@redhat.com>
+Code-Review+2: Riccardo Pittau <elfosardo@gmail.com>
+Workflow+1: Riccardo Pittau <elfosardo@gmail.com>
+Verified+2: Zuul CI <zuul@review.rdoproject.org>
+Submitted-by: Zuul CI <zuul@review.rdoproject.org>
+Submitted-at: Thu, 15 Oct 2020 07:50:47 +0000
+Reviewed-on: https://review.rdoproject.org/r/30060
+Project: openstack/hardware-distgit
+Branch: refs/heads/train-rdo
