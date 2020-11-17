@@ -27,7 +27,7 @@ Source0:        https://pypi.io/packages/source/h/hardware/hardware-%{upstream_v
 
 BuildArch:      noarch
 
-BuildRequires:  git
+BuildRequires:  git-core
 
 %description
 %{common_desc}
