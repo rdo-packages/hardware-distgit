@@ -56,12 +56,19 @@ Obsoletes: python2-hardware-detect < %{version}-%{release}
 Requires: lshw
 Requires: smartmontools
 Requires: lldpad
-Requires: sysbench
-Requires: fio
 Requires: python3-pbr
 Requires: python3-pexpect
 Requires: ethtool
 Requires: pciutils
+
+# Benchmarking is an optional feature
+%if 0%{?fedora} || 0%{?rhel} > 7
+Recommends: fio
+Recommends: sysbench
+%else
+Requires: fio
+Requires: sysbench
+%endif
 
 
 %description -n python3-hardware-detect
