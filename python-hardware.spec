@@ -1,5 +1,7 @@
 %{?!_licensedir:%global license %%doc}
 %{!?upstream_version: %global upstream_version %{version}}
+# we are excluding some BRs from automatic generator
+%global excluded_brs doc8 bandit pre-commit hacking flake8-import-order
 
 %global with_doc 1
 
@@ -20,7 +22,7 @@ Name:           python-hardware
 Summary:        Hardware detection and classification utilities
 Version:        XXX
 Release:        XXX
-License:        ASL 2.0
+License:        Apache-2.0
 URL:            https://pypi.python.org/pypi/hardware
 
 Source0:        https://pypi.io/packages/source/h/hardware/hardware-%{upstream_version}.tar.gz
@@ -35,29 +37,21 @@ BuildRequires:  git-core
 
 %package -n python3-hardware
 Summary:        Hardware detection and classification utilities
-%{?python_provide:%python_provide python3-hardware}
 Obsoletes: python2-hardware < %{version}-%{release}
 
-BuildRequires:  python3-setuptools
 BuildRequires:  python3-devel
-BuildRequires:  python3-babel
-BuildRequires:  python3-pbr
+BuildRequires:  pyproject-rpm-macros
 Requires: python3-hardware-detect = %{version}-%{release}
-Requires: python3-pbr
-
 %description -n python3-hardware
 %{common_desc}
 
 %package -n python3-hardware-detect
 Summary:    Hardware detection and classification utilities
-%{?python_provide:%python_provide python3-hardware-detect}
 Obsoletes: python2-hardware-detect < %{version}-%{release}
 
 Requires: lshw
 Requires: smartmontools
 Requires: lldpad
-Requires: python3-pbr
-Requires: python3-pexpect
 Requires: ethtool
 Requires: pciutils
 
@@ -80,8 +74,6 @@ Requires: sysbench
 Summary:    Documentation for Hardware detection and classification utilities
 Group:      Documentation
 
-BuildRequires:  python3-sphinx
-
 %description doc
 Documentation for Hardware detection and classification utilities.
 %endif
@@ -92,8 +84,29 @@ rm -rf *.egg-info
 
 find -name '*.py' | xargs sed -i '1s|^#!python|#!%{__python3}|'
 
+sed -i /.*-c{env:TOX_CONSTRAINTS_FILE.*/d tox.ini
+sed -i /^minversion.*/d tox.ini
+sed -i /^requires.*virtualenv.*/d tox.ini
+
+# Exclude some bad-known BRs
+for pkg in %{excluded_brs};do
+  for reqfile in doc/requirements.txt test-requirements.txt; do
+    if [ -f $reqfile ]; then
+      sed -i /^${pkg}.*/d $reqfile
+    fi
+  done
+done
+
+# Automatic BR generation
+%generate_buildrequires
+%if 0%{?with_doc}
+  %pyproject_buildrequires -t -e %{default_toxenv},docs
+%else
+  %pyproject_buildrequires -t -e %{default_toxenv}
+%endif
+
 %build
-%{py3_build}
+%pyproject_wheel
 
 %if 0%{?with_doc}
 %{__python3} setup.py build_sphinx
@@ -101,7 +114,7 @@ rm -rf doc/build/html/.buildinfo
 %endif
 
 %install
-%{py3_install}
+%pyproject_install
 
 %files -n python3-hardware
 %license LICENSE
@@ -115,7 +128,7 @@ rm -rf doc/build/html/.buildinfo
 %{_bindir}/hardware-detect
 %{python3_sitelib}/hardware/benchmark
 %{python3_sitelib}/hardware/*.py*
-%{python3_sitelib}/hardware*.egg-info
+%{python3_sitelib}/hardware*.dist-info
 
 %if 0%{?with_doc}
 %files doc
