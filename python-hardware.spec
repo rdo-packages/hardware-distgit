@@ -20,8 +20,8 @@ Features: \
 
 Name:           python-hardware
 Summary:        Hardware detection and classification utilities
-Version:        XXX
-Release:        XXX
+Version:        0.31.0
+Release:        1%{?dist}
 License:        Apache-2.0
 URL:            https://pypi.python.org/pypi/hardware
 
@@ -137,4 +137,7 @@ rm -rf doc/build/html/.buildinfo
 %endif
 
 %changelog
+* Thu Mar 14 2024 RDO <dev@lists.rdoproject.org> 0.31.0-1
+- Update to 0.31.0
+
 
