@@ -109,7 +109,7 @@ done
 %pyproject_wheel
 
 %if 0%{?with_doc}
-%{__python3} setup.py build_sphinx
+%tox -e docs
 rm -rf doc/build/html/.buildinfo
 %endif
 
