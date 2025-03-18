@@ -1,5 +1,7 @@
 %{?!_licensedir:%global license %%doc}
 %{!?upstream_version: %global upstream_version %{version}}
+%{?dlrn: %global tarsources hardware}
+%{!?dlrn: %global tarsources hardware}
 # we are excluding some BRs from automatic generator
 %global excluded_brs doc8 bandit pre-commit hacking flake8-import-order
 
