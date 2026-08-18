@@ -141,3 +141,4 @@ rm -rf doc/build/html/.buildinfo
 - Update to 0.31.0
 
 
+# REMOVEME: error caused by commit https://github.com/redhat-cip/hardware.git/commit/a0b13f7337b8361681e810bc6e51845b52a1fbb2
